@@ -12,7 +12,8 @@
     "grunt-mocha-parallel": "^0.1.7",
     "mocha": "1.18.2",
     "selenium-standalone": "2.42.0-2.9.0-1",
-    "selenium-webdriver": "2.42.1"
+    "selenium-webdriver": "2.42.1",
+    "saucelabs": "0.1.1"
   },
   "engines": {
     "node": "0.10.29"
