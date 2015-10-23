@@ -9,7 +9,7 @@ var assert = require('assert'),
       password: accessKey
     });
 
-test.describe('Google Search', function() {
+test.describe('Google Search 2', function() {
   this.timeout(60000);
 
   var driver;

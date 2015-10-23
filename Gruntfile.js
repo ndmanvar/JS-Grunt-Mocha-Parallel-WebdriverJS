@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         mocha_parallel: {
             options: {
                 args: function(suiteName) {
-                    return ["test/sample-spec.js"];
+                    return [];
                 },
                 env: function(suiteName) {
                     return process.env;
