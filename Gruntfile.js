@@ -1,10 +1,6 @@
 'use strict';
 
-var path = require('path');
-
 module.exports = function (grunt) {
-
-    require('time-grunt')(grunt);
 
     // configure tasks
     grunt.initConfig({
@@ -18,11 +14,16 @@ module.exports = function (grunt) {
                     return process.env;
                 },
                 report: function(suite, code, stdout, stderr) {
+                    if (stdout.length) {
+                      process.stdout.write(stdout);
+                    }
+                    if (stderr.length) {
+                      process.stderr.write(stderr);
+                    }
                 },
                 done: function(success, results) {
-                },
-                mocha: './node_modules/.bin/mocha',
-                concurrency: '10'
+                }
+                // mocha: './node_modules/.bin/mocha'
             }
         }
 
