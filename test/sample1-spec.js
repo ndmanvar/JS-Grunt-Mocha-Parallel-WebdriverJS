@@ -35,9 +35,6 @@ test.describe('Google Search 2', function() {
     driver.getSession().then(function (sessionid){
       driver.sessionID = sessionid.id_;
     });
-
-
-
   });
 
   test.afterEach(function(done) {
@@ -52,13 +49,13 @@ test.describe('Google Search 2', function() {
     }, done);
   })
 
-  test.it('searching for webdriver using google 2', function() {
+  test.it('searching for selenium using google', function() {
     driver.get('http://google.com');
 
     var searchBox = driver.findElement(webdriver.By.name('q'));
-    searchBox.sendKeys('webdriver');
+    searchBox.sendKeys('selenium');
     searchBox.getAttribute('value').then(function(value) {
-      assert.equal(value, 'webdriver');
+      assert.equal(value, 'selenium');
     });
 
   });
