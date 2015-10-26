@@ -14,13 +14,10 @@ test.describe('Google Search', function() {
 
   var driver;
 
-  test.before(function() {
-    // var browser = process.env.BROWSER,
-    //     version = process.env.VERSION,
-    //     platform = process.env.PLATFORM,
-    var browser = "chrome",
-        version = 41,
-        platform = "XP",
+  test.beforeEach(function() {
+    var browser = process.env.BROWSER,
+        version = process.env.VERSION,
+        platform = process.env.PLATFORM,
         server = "http://" + username + ":" + accessKey + 
                   "@ondemand.saucelabs.com:80/wd/hub"; 
 
@@ -43,7 +40,7 @@ test.describe('Google Search', function() {
 
   });
 
-  test.after(function(done) {
+  test.afterEach(function(done) {
     var title = this.currentTest.title,
         passed = (this.currentTest.state === 'passed') ? true : false;
 
@@ -55,7 +52,7 @@ test.describe('Google Search', function() {
     }, done);
   })
 
-  test.it('searching for webdriver using google', function() {
+  test.it('searching for webdriver using google 0', function() {
     driver.get('http://google.com');
 
     var searchBox = driver.findElement(webdriver.By.name('q'));
@@ -63,6 +60,15 @@ test.describe('Google Search', function() {
     searchBox.getAttribute('value').then(function(value) {
       assert.equal(value, 'webdriver');
     });
+  });
 
+  test.it('searching for webdriver using google 1', function() {
+    driver.get('http://google.com');
+
+    var searchBox = driver.findElement(webdriver.By.name('q'));
+    searchBox.sendKeys('webdriver');
+    searchBox.getAttribute('value').then(function(value) {
+      assert.equal(value, 'webdriver');
+    });
   });
 });

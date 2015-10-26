@@ -15,12 +15,9 @@ test.describe('Google Search 2', function() {
   var driver;
 
   test.beforeEach(function() {
-    // var browser = process.env.BROWSER,
-    //     version = process.env.VERSION,
-    //     platform = process.env.PLATFORM,
-    var browser = "firefox",
-        version = 37,
-        platform = "Windows 7",
+    var browser = process.env.BROWSER,
+        version = process.env.VERSION,
+        platform = process.env.PLATFORM,
         server = "http://" + username + ":" + accessKey + 
                   "@ondemand.saucelabs.com:80/wd/hub"; 
 
