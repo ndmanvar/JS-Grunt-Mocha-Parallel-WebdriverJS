@@ -27,7 +27,8 @@ test.describe('Google Search 2', function() {
         'platform': platform,
         'version': version,
         'username': username,
-        'accessKey': accessKey
+        'accessKey': accessKey,
+        'name': this.currentTest.title
       }).
       usingServer(server).
       build();
@@ -38,25 +39,22 @@ test.describe('Google Search 2', function() {
   });
 
   test.afterEach(function(done) {
-    var title = this.currentTest.title,
-        passed = (this.currentTest.state === 'passed') ? true : false;
+    var passed = (this.currentTest.state === 'passed') ? true : false;
 
     driver.quit();
     
     saucelabs.updateJob(driver.sessionID, {
-      name: title,
       passed: passed
     }, done);
   })
 
-  test.it('searching for selenium using google', function() {
+  test.it('2', function() {
     driver.get('http://google.com');
 
     var searchBox = driver.findElement(webdriver.By.name('q'));
-    searchBox.sendKeys('selenium');
+    searchBox.sendKeys('webdriver');
     searchBox.getAttribute('value').then(function(value) {
-      assert.equal(value, 'selenium');
+      assert.equal(value, 'webdriver');
     });
-
   });
 });

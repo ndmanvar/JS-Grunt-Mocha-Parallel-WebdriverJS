@@ -9,7 +9,7 @@ var assert = require('assert'),
       password: accessKey
     });
 
-test.describe('Google Search', function() {
+test.describe('Google Search 1', function() {
   this.timeout(60000);
 
   var driver;
@@ -44,12 +44,11 @@ test.describe('Google Search', function() {
     driver.quit();
     
     saucelabs.updateJob(driver.sessionID, {
-      name: title,
       passed: passed
     }, done);
   })
 
-  test.it('searching for webdriver using google', function() {
+  test.it('1', function() {
     driver.get('http://google.com');
 
     var searchBox = driver.findElement(webdriver.By.name('q'));
