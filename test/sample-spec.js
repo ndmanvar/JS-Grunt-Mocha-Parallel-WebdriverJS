@@ -44,7 +44,6 @@ test.describe('Google Search', function() {
     driver.quit();
     
     saucelabs.updateJob(driver.sessionID, {
-      name: title,
       passed: passed
     }, done);
   })
