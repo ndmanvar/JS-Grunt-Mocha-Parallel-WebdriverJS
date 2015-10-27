@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function (grunt) {
-
     // configure tasks
     grunt.initConfig({
         mocha_parallel: {
@@ -34,7 +33,9 @@ module.exports = function (grunt) {
                 options: {
                     grunt: true
                 },
-                tasks: ['run_windows10_edge', 'run_Windows7_ie_10']
+                tasks: ['run_windows10_edge', 'run_Windows7_ie_10',
+                        'run_XP_firefox_37', 'run_Windows8_chrome_40',
+                        'run_OSX10.10_safari_8']
             }
         }
     });
@@ -55,9 +56,31 @@ module.exports = function (grunt) {
       grunt.option('platform', "Windows 7");
     });
 
+    grunt.registerTask('XP_firefox_37', function(n) {
+      grunt.option('browser', 'firefox');
+      grunt.option('version', 37);
+      grunt.option('platform', "XP");
+    });
+
+    grunt.registerTask('Windows8_chrome_40', function(n) {
+      grunt.option('browser', 'chrome');
+      grunt.option('version', 40);
+      grunt.option('platform', "Windows 8");
+    });
+
+    grunt.registerTask('OSX10.10_safari_8', function(n) {
+      grunt.option('browser', 'safari');
+      grunt.option('version', 8);
+      grunt.option('platform', "OS X 10.10");
+    });
+
     // register tasks
     grunt.registerTask('default', ['parallel']);
 
     grunt.registerTask('run_windows10_edge', ['Windows10_edge', 'mocha_parallel']);
     grunt.registerTask('run_Windows7_ie_10', ['Windows7_ie_10', 'mocha_parallel']);
+    grunt.registerTask('run_XP_firefox_37', ['XP_firefox_37', 'mocha_parallel']);
+    grunt.registerTask('run_Windows8_chrome_40', ['Windows8_chrome_40', 'mocha_parallel']);
+    grunt.registerTask('run_OSX10.10_safari_8', ['OSX10.10_safari_8', 'mocha_parallel']);
 };
+
