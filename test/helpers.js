@@ -30,8 +30,7 @@ function beforeEachExample() {
     driver.getSession().then(function(sessionid) {
         driver.sessionID = sessionid.id_;
     });
-
-}
+};
 
 function afterEachExample(done) {
 	var passed = (this.currentTest.state === 'passed') ? true : false;
@@ -41,7 +40,7 @@ function afterEachExample(done) {
     saucelabs.updateJob(driver.sessionID, {
       passed: passed
     }, done);
-}
+};
 
 function makeSuite(desc, cb) {
     test.describe(desc, function() {
@@ -53,6 +52,6 @@ function makeSuite(desc, cb) {
         cb();
         test.afterEach(afterEachExample);
     });
-}
+};
 
 exports.makeSuite = makeSuite;
