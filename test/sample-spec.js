@@ -27,7 +27,8 @@ test.describe('Google Search', function() {
         'platform': platform,
         'version': version,
         'username': username,
-        'accessKey': accessKey
+        'accessKey': accessKey,
+        'name': this.currentTest.title
       }).
       usingServer(server).
       build();
@@ -38,8 +39,7 @@ test.describe('Google Search', function() {
   });
 
   test.afterEach(function(done) {
-    var title = this.currentTest.title,
-        passed = (this.currentTest.state === 'passed') ? true : false;
+    var passed = (this.currentTest.state === 'passed') ? true : false;
 
     driver.quit();
     
