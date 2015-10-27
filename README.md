@@ -1,6 +1,15 @@
+#Set Sauce Variables:
+```
+$ export SAUCE_USERNAME=sauce_username
+$ export SAUCE_ACCESS_KEY=sauce_access_key
+```
 
-**Terminal Window 2 - Run the tests**
-```shell
-$ cd selenium-mocha-chai-saucelabs
-$ npm run test-selenium --silent
+#Download Node Modules:
+```
+$ npm install
+```
+
+#Run the tests:
+```
+$ grunt
 ```
