@@ -2,15 +2,13 @@ var assert = require('assert'),
     webdriver = require('selenium-webdriver'),
     makeSuite = require('./helpers').makeSuite;
 
-makeSuite('Google Search 2', function() {
+makeSuite('Go to NFL.com', function() {
 
-  it('2', function() {
-    driver.get('http://google.com');
-
-    var searchBox = driver.findElement(webdriver.By.name('q'));
-    searchBox.sendKeys('webdriver');
-    searchBox.getAttribute('value').then(function(value) {
-      assert.equal(value, 'webdriver');
+  it('should go to NFL.com', function() {
+    driver.get('http://www.nfl.com/');
+    
+    driver.getTitle().then(function(title) {
+      assert.equal(title,'NFL.com - Official Site of the National Football League');
     });
   });
   
